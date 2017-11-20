@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "585622682982",
+    "firebase_url": "https://know-tasks.firebaseio.com",
+    "project_id": "know-tasks",
+    "storage_bucket": "know-tasks.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:585622682982:android:69ef05a4c161c1d9",
+        "android_client_info": {
+          "package_name": "com.know.know_tasks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "585622682982-e2kbl5k4nhg5k5q80c5gmrdamjivs4er.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.know.know_tasks",
+            "certificate_hash": "a73d79989340511b221e76545b87e50ac2782591"
+          }
+        },
+        {
+          "client_id": "585622682982-pfrunem3oa9bi4kokagdp0cg4ojhdvbu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB48Y5-QmRpsYUxHS2WDgGGKPXqTIbVGUg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "585622682982-pfrunem3oa9bi4kokagdp0cg4ojhdvbu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

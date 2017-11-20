@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/default_padding"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.know.know_tasks.ui.taskdetail.TaskDetailActivity"
+    tools:showIn="@layout/activity_task_detail">
+
+    <TextView
+        android:id="@+id/textViewTaskTitle"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/textViewSubTaskTitle"
+        style="@style/TextAppearance.AppCompat.Subhead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewTaskTitle"
+        android:layout_margin="@dimen/default_padding"
+        android:text="Sub-Tasks:" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerViewSubTasks"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/textViewSubTaskTitle"
+        app:layoutManager="android.support.v7.widget.GridLayoutManager"
+        app:spanCount="1" />
+
+</RelativeLayout>
