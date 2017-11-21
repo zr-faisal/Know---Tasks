@@ -16,10 +16,9 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final int RC_SIGN_IN = 123;
     @BindView(R.id.mainActivityLayout)
     ConstraintLayout mainActivityLayout;
-
-    private static final int RC_SIGN_IN = 123;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        /* TODO: For test, ommit login - shoul be removed for final submission */
         startActivity(new Intent(this, TaskListActivity.class));
 
         /*// Create and launch sign-in intent

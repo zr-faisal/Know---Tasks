@@ -55,8 +55,8 @@ public class TaskListActivity extends AppCompatActivity {
     }
 
     private void attachFirebaseAdapter() {
-        Query taskQuery = FirebaseManager.getTasksReference().limitToLast(5000);
-        FirebaseRecyclerOptions<Task> options =
+        final Query taskQuery = FirebaseManager.getTasksReference();
+        final FirebaseRecyclerOptions<Task> options =
                 new FirebaseRecyclerOptions.Builder<Task>()
                         .setQuery(taskQuery, Task.class)
                         .setLifecycleOwner(this)
@@ -68,17 +68,20 @@ public class TaskListActivity extends AppCompatActivity {
             public TaskViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
                 View view = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.item_subtask_list, parent, false);
-
                 return new TaskViewHolder(view);
             }
 
             @Override
-            protected void onBindViewHolder(TaskViewHolder holder, final int position, final Task task) {
+            protected void onBindViewHolder(final TaskViewHolder holder, final int position, final Task task) {
                 holder.bind(task);
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent taskDetailIntent = new Intent(TaskListActivity.this, TaskDetailActivity.class);
+                        final String taskReference = options.getSnapshots()
+                                .getSnapshot(holder.getAdapterPosition()).getRef().getKey();
+                        Intent taskDetailIntent = new Intent(
+                                TaskListActivity.this, TaskDetailActivity.class);
+                        taskDetailIntent.putExtra(Constants.EXTRA_TASK_REF, taskReference);
                         taskDetailIntent.putExtra(Constants.EXTRA_TASK, task);
                         startActivity(taskDetailIntent);
                     }

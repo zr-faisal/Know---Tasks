@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.widget.TextView;
 
 import com.know.know_tasks.R;
@@ -27,14 +28,15 @@ public class TaskDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_task_detail);
         ButterKnife.bind(this);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        String taskId = getIntent().getStringExtra(Constants.EXTRA_TASK_REF);
         Task task = getIntent().getParcelableExtra(Constants.EXTRA_TASK);
-        if (task != null) {
+        if (task != null && !TextUtils.isEmpty(taskId)) {
             textViewTaskTitle.setText(task.title);
-            recyclerViewSubTasks.setAdapter(new SubTaskDetailAdapter(task.subTasks));
+            recyclerViewSubTasks.setAdapter(new SubTaskDetailAdapter(taskId, task.subTasks));
         }
     }
 

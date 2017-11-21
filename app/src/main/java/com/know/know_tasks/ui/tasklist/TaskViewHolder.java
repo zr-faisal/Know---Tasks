@@ -33,7 +33,7 @@ public class TaskViewHolder extends RecyclerView.ViewHolder {
 
     public void bind(final Task task) {
         textViewSubTaskTitle.setText(task.title);
-        textViewTimer.setText(task.state);
-        buttonState.setVisibility(View.GONE);
+        textViewTimer.setText(task.subTasks.size() + " SubTasks");
+        buttonState.setText(task.state);
     }
 }
